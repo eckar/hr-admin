@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../public/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script
+      type="text/javascript"
+      src="../public/js/viewmodel/EmployeeViewModel.js"
+    ></script>
+    <title>Employees</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="table-wrapper">
+        <div class="table-title">
+          <div class="row">
+            <div class="col-sm-8">
+              <h2>Employee</h2>
+            </div>
+            <div class="col-sm-4">
+              <a
+                type="button"
+                class="btn btn-info add-new"
+                href="./createEmployee.html"
+              >
+                <i class="fa fa-plus"></i> NEW EMPLOYEE
+              </a>
+            </div>
+          </div>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">FIRST NAME</th>
+              <th scope="col">LAST NAME</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">ACTIONS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="idssn">14578956</td>
+              <td id="firstName">Mark</td>
+              <td id="lastName">Smith</td>
+              <td id="active">ACTIVE</td>
+              <td>
+                <a
+                  class="edit"
+                  title="Edit"
+                  data-toggle="tooltip"
+                  href="createEmployee.html"
+                  ><i class="material-icons">&#xE254;</i></a
+                >
+                <a
+                  class="delete"
+                  title="Delete"
+                  data-toggle="tooltip"
+                  onclick="showAlert()"
+                  ><i class="material-icons">&#xE872;</i></a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function showAlert() {
+        Swal.fire({
+          title: "Are you sure you want to remove this employee?",
+          icon: "warning",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "YES, REMOVE",
+          cancelButtonText: "CANCEL",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Removed!", "", "success");
+            window.location.href = "./createEmployee.html";
+            deleteEmployee(idssn);
+          } else if (result.isDenied) {
+            Swal.fire("Employee were not removed", "", "info");
+            window.location.href = "./createEmployee.html";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

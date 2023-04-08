@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../public/css/styles.css" />
+    <script
+      type="text/javascript"
+      src="../public/js/viewmodel/EmployeeViewModel.js"
+    ></script>
+    <title>HR-ADMIN</title>
+  </head>
+  <body id="bootstrap-overrides">
+    <div class="container">
+      <form id="form">
+        <h3>Employee ></h3>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="firstName">FIRST NAME</label>
+            <input type="text" class="form-control" id="firstName" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="lastName">LAST NAME</label>
+            <input type="text" class="form-control" id="lastName" />
+          </div>
+        </div>
+        <div class="form-group col-md-12">
+          <label for="id">ID</label>
+          <input type="text" class="form-control" id="id" />
+        </div>
+        <div class="form-group col-md-12">
+          <label for="ssn">SSN</label>
+          <input type="text" class="form-control" id="idssn" />
+        </div>
+        <div class="form-group col-md-12">
+          <div class="form-row">
+            <div class="form-check col-md-10">
+              <label
+                class="form-check-label"
+                for="active"
+                style="position: relative; left: 0"
+              >
+                ACTIVE
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="active"
+                style="position: relative; left: 0"
+              />
+            </div>
+            <div class="form-button col-md-1">
+              <a
+                type="button"
+                class="btn btn-info add-new"
+                href="./listEmployees.html"
+                onclick="submitEmployee()"
+              >
+                SAVE
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script>
+      function createAlert() {
+        Swal.fire({
+          title: "Are you sure you want to create this employee?",
+          icon: "info",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "CREATE",
+          cancelButtonText: "CANCEL",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Created!", "", "success");
+            window.location.href = "./listEmployee.html";
+          } else if (result.isDenied) {
+            Swal.fire("Employee were not created", "", "info");
+            window.location.href = "./createEmployee.html";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
