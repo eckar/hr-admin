@@ -1,3 +1,3 @@
 export interface StringFieldValidator {
-    isValid(s: string) : boolean;
+  isValid(s: string): boolean;
 }

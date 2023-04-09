@@ -1,8 +1,11 @@
 export class Employee {
-    constructor(idssn, firstName, lastName, active) {
-        this.idssn = idssn;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.active = active;
+    constructor(EmployeeNo, EmploymentStartDate, SSN, PersonID, FirstName, LastName, Status) {
+        this.EmployeeNo = EmployeeNo;
+        this.EmploymentStartDate = EmploymentStartDate;
+        this.SSN = SSN;
+        this.PersonID = PersonID;
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Status = Status;
     }
 }

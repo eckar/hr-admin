@@ -9,10 +9,7 @@
       href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="../public/css/styles.css" />
-    <script
-      type="text/javascript"
-      src="../public/js/viewmodel/EmployeeViewModel.js"
-    ></script>
+
     <title>HR-Admin</title>
   </head>
   <body>
@@ -24,15 +21,13 @@
             <a class="button" href="./createEmployee.html">Create Employee</a>
           </div>
           <div class="form-group col-md-2">
-            <a
-              class="button"
-              href="./listEmployees.html"
-              onclick="allEmployees()"
+            <a class="button" href="./listEmployees.html" onclick="getAll()"
               >List Employees</a
             >
           </div>
         </div>
       </div>
     </main>
+    <script type="module" src="../public/js/view/EmployeeView.js"></script>
   </body>
 </html>
